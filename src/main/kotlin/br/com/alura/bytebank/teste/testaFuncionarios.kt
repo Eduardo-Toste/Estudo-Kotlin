@@ -1,3 +1,10 @@
+package br.com.alura.bytebank.teste
+
+import br.com.alura.bytebank.modelo.*
+import br.com.alura.modelo.*
+import modelo.*
+import br.com.alura.bytebank.print.printMsg
+
 fun testaFuncionarios(){
     val alex: Funcionario = Analista(
         nome = "Alex",

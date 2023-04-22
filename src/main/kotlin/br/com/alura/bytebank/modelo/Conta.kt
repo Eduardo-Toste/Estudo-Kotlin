@@ -1,3 +1,7 @@
+package br.com.alura.bytebank.modelo
+
+import br.com.alura.bytebank.print.printMsg
+
 abstract class Conta(
     var titular: String,
     val numero: Int

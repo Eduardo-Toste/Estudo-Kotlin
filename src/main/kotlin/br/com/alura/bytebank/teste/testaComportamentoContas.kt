@@ -1,3 +1,7 @@
+package br.com.alura.bytebank.teste
+
+import br.com.alura.bytebank.modelo.ContaCorrente
+
 fun testeComportamentoContas(){
     val contaAlex = ContaCorrente(titular = "Alex", numero = 1000)
     contaAlex.deposita(200.0)
