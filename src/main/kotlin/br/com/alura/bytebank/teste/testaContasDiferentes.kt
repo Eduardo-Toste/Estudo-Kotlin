@@ -1,5 +1,6 @@
 package br.com.alura.bytebank.teste
 
+import br.com.alura.bytebank.modelo.Cliente
 import br.com.alura.bytebank.modelo.ContaCorrente
 import br.com.alura.bytebank.modelo.ContaPoupanca
 import br.com.alura.bytebank.modelo.ContaSalario
@@ -8,17 +9,17 @@ import br.com.alura.bytebank.print.printMsg
 fun testaContasDiferentes() {
 
     val contaCorrente = ContaCorrente(
-        "Murilo",
+        titular = Cliente(nome = "Murilo", cpf = "", senha = 99),
         3100
     )
 
     val contaPoupanca = ContaPoupanca(
-        "Eduardo",
+        Cliente(nome = "Eduardo", cpf = "", senha = 54),
         3099
     )
 
     val contaSalario = ContaSalario(
-        "Ageu",
+        Cliente(nome = "Ageu", cpf = "", senha = 10),
         10001
     )
 

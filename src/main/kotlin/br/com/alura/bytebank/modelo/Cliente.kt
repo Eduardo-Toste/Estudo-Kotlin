@@ -3,8 +3,9 @@ package br.com.alura.bytebank.modelo
 import br.com.alura.bytebank.print.printMsg
 
 class Cliente(
-    val nome: String,
+    var nome: String,
     val cpf: String,
+    var endereco: Endereco = Endereco(),
     val senha: Int
 ): Autenticavel {
 

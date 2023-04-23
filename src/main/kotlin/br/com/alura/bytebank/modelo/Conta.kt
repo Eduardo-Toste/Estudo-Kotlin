@@ -3,7 +3,7 @@ package br.com.alura.bytebank.modelo
 import br.com.alura.bytebank.print.printMsg
 
 abstract class Conta(
-    var titular: String,
+    var titular: Cliente,
     val numero: Int
 ){
     var saldo = 0.0
