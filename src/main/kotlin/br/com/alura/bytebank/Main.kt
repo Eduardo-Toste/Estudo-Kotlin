@@ -2,34 +2,25 @@ package br.com.alura.bytebank
 
 import br.com.alura.bytebank.modelo.Endereco
 
+
 fun main() {
-
-    val endereco1 = Endereco()
-    val endereco2 = Endereco()
-
-    println(endereco1.equals(endereco2))
-
-    println(endereco1.hashCode())
-    println(endereco2.hashCode())
-
-    println(endereco1.toString())
-    println(endereco2.toString())
-
-
+    println("início main")
+    funcao1()
+    println("fim main")
 }
 
-fun imprime(valor: Any) : Unit {
-    println(valor)
+fun funcao1(){
+    println("início funcao1")
+    funcao2()
+    println("fim funcao1")
 }
 
-fun imprime(valor:Int){
-    println(valor)
-}
-
-fun imprime(valor: Double){
-    println(valor)
-}
-
-fun imprime(endereco: Endereco){
-    println(endereco)
+fun funcao2() {
+    println("início funcao2")
+    for (i in 1..5){
+        println(i)
+        val endereco = Any()
+        endereco as Endereco
+    }
+    println("fim funcao2")
 }
