@@ -1,6 +1,8 @@
 package br.com.alura.bytebank.modelo
 
+import br.com.alura.bytebank.exception.SaldoInsuficienteException
 import br.com.alura.bytebank.print.printMsg
+import java.util.Currency
 
 abstract class Conta(
     var titular: Cliente,
@@ -31,7 +33,16 @@ abstract class Conta(
 
     abstract fun saca(valor: Double)
 
-    abstract fun transfere(valor: Double, destino: Conta): Boolean
+    fun transfere(valor: Double, destino: Conta){
+        if (saldo < valor) {
+            throw SaldoInsuficienteException()
+        }
+
+        this.saldo -= valor
+        destino.deposita(valor)
+        printMsg("Transferência realizada com sucesso!")
+
+        }
 }
 
 class ContaCorrente(
@@ -43,22 +54,11 @@ class ContaCorrente(
 ){
 
 
-    override fun saca(valor: Double){
+    override fun saca(valor: Double) {
         val valorComTaxa = valor + 0.1
-        if(this.saldo >= valorComTaxa){
+        if (this.saldo >= valorComTaxa) {
             this.saldo -= valorComTaxa
         }
-    }
-
-    override fun transfere(valor: Double, destino: Conta): Boolean {
-        if (this.saldo >= valor) {
-            this.saldo -= valor
-            destino.deposita(valor)
-            printMsg("Transferência realizada com sucesso!")
-            return true
-        }
-        printMsg("Transferência incompleta, consulte seu saldo!")
-        return false
     }
 }
 
@@ -71,21 +71,10 @@ class ContaPoupanca(
 ){
 
 
-    override fun saca(valor: Double){
-        if(this.saldo >= valor){
-            this.saldo -= valor
-        }
-    }
-
-    override fun transfere(valor: Double, destino: Conta): Boolean {
+    override fun saca(valor: Double) {
         if (this.saldo >= valor) {
             this.saldo -= valor
-            destino.deposita(valor)
-            printMsg("Transferência realizada com sucesso!")
-            return true
         }
-        printMsg("Transferência incompleta, consulte seu saldo!")
-        return false
     }
 }
 
@@ -104,8 +93,7 @@ class ContaSalario(
         }
     }
 
-    override fun transfere(valor: Double, destino: Conta): Boolean {
-        printMsg("Não é possível transferir de uma conta salário!")
-        return true
+    fun transfere(){
+        printMsg("Nao e possivel realizar transferencias em contas salarios!")
     }
 }
