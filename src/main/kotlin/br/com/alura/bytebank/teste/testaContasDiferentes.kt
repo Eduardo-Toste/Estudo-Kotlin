@@ -42,7 +42,7 @@ fun testaContasDiferentes() {
 //    printMsg("Saldo da modelo.Conta Corrente: ${contaCorrente.saldo}")
 //    printMsg("Saldo da modelo.Conta Poupança: ${contaPoupanca.saldo}")
 
-    contaSalario.transfere(500.00, contaCorrente)
+    contaSalario.transfere(500.00, contaCorrente, 10)
     printMsg("Saldo da conta Corrente: ${contaCorrente.saldo}")
     printMsg("Saldo da conta Poupança: ${contaSalario.saldo}")
 }

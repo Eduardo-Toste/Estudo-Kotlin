@@ -7,7 +7,7 @@ class Endereco(
     var cidade: String = "",
     var estado: String = "",
     var cep: String = "",
-    var complemento: String = ""
+    var complemento: String? = null
 ){
     override fun toString(): String {
         return "Logradouro: $logradouro\nNumero: $numero\nBairro: $bairro\nCidade: $cidade\nEstado: $estado\nCEP: $cep\nComplemento: $complemento"

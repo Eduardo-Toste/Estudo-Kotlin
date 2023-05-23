@@ -1,32 +1,21 @@
 package br.com.alura.bytebank
 
-import br.com.alura.bytebank.exception.SaldoInsuficienteException
-import br.com.alura.bytebank.print.printMsg
-import br.com.alura.bytebank.teste.testeComportamentoContas
+import br.com.alura.bytebank.modelo.Endereco
 
 
 fun main() {
-    println("início main")
-    testeComportamentoContas()
-    println("fim main")
+    var enderecoNulo: Endereco? = Endereco(logradouro = "rua vergueiro", complemento = "prédio")
+    val logradouroNovo: String? = enderecoNulo?.logradouro
+    enderecoNulo?.let {
+        println(it.logradouro.length)
+        val tamanhoComplemento: Int =
+            it.complemento?.length ?: throw IllegalStateException("Complemento não pode ser vazio")
+        println(tamanhoComplemento)
+    }
+    teste("")
+    teste(1)
 }
 
-fun funcao1(){
-    println("início funcao1")
-    try{
-        funcao2()
-    } catch (e: SaldoInsuficienteException){
-        printMsg("SaldoInsuficienteException foi captada!")
-        e.printStackTrace()
-    }
-    println("fim funcao1")
-}
-
-fun funcao2() {
-    println("início funcao2")
-    for (i in 1..5) {
-        println(i)
-        throw SaldoInsuficienteException()
-    }
-    println("fim funcao2")
+fun teste(valor: Any){
+    val numero: Int? = valor as? Int
 }
